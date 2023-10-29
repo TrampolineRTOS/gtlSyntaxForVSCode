@@ -1,0 +1,99 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"version": "1.0",
+	"name": "gtl",
+	"patterns": [
+		{
+			"include": "#templates"
+		}
+	],
+	"repository": {
+		"gtlLanguage":{
+			"patterns": [
+				{
+					"name": "comment.line.documentation.gtl",
+					"match": "#.*$"
+				},
+				{"include": "#strings"},
+				{"include": "#numbers"},
+				{
+					"name": "keyword.operator.assignment.gtl",
+					"match": "@{|@\\(|@\\[|@!|@|:=|\\+=|-=|<<=|>>=|mod=|\\^=|\\*=|/=|\\&=|\\|="
+				},
+				{
+					"name": "keyword.operator.arithmetic.gtl",
+					"match": "\\*|\\+|-|/|\\||\\!|>>|<<|\\^|\\&|~"
+				},	
+				{
+					"name": "keyword.operator.comparison.gtl",
+					"match": ">|<|==|!=|>=|<="
+				},
+				{
+					"name": "punctuation.separator.gtl",
+					"match": "::|:|->|,"
+				},
+				{"include": "#boolKeyword"},
+				{"include": "#keywords"},
+				{"include": "#identifier"}
+			]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.gtl",
+				"match": "\\b(after|before|between|by|default|display|do|down|else|elsif|emptylist|emptymap|end|error|exists|for|foreach|from|func|here|if|in|import|listof|let|loop|mapof|mod|no|not|or|print|println|seed|repeat|sort|step|tab|template|then|to|typeof|up|yes|warning|while|write|executable|variables|getter|unlet|setter|libraries|input|break|__VARS__)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.gtl",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.gtl",
+					"match": "\\\\."
+				}
+			]
+		},
+		"numbers": {
+			"match": "([+-]?[0-9]+([.][0-9]*)?)|([.][0-9]+)",
+			"captures": {
+				"1": {
+					"patterns": [{
+						"match": "[+-]?[0-9]+(0-9_)*(?!\\.)",
+						"name": "constant.numeric.integer.gtl"
+					},{
+						"match": "[+-]?[0-9]+([.][0-9]*)?",
+						"name": "constant.numeric.float.gtl"
+					}]
+				},
+				"3": {"name":"constant.numeric.float.gtl"}
+			}
+		},
+		"boolKeyword": {
+			"name": "constant.language.gtl",
+			"match": "\\btrue|false\\b"
+		},
+		"identifier": {
+			"name": "identifier.gtl",
+			"match": "[a-zA-Z_](0-9a-zA-Z_)*"
+		},
+		"templates": {
+			"contentName": "meta.embedded.block.template.gtl",
+			"begin": "%",
+			"end":"%",
+			"beginCaptures": {
+				"0": {"name": "punctuation.separator.template.close.gtl"}
+			},
+			"endCaptures": {
+				"0": {"name": "punctuation.separator.template.close.gtl"}
+			},
+			"patterns": [
+				{
+					
+					"include": "#gtlLanguage"
+				}
+			]
+		}
+	},
+	"scopeName": "source.gtl"
+}

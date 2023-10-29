@@ -1,0 +1,40 @@
+{
+  "name": "gtl",
+  "displayName": "gtl",
+  "description": "Template language for Goil, the Trampoline RTOS .oil compiler",
+  "version": "0.0.1",
+	"publisher": "mbriday",
+	"license": "GPLv2",
+  "engines": {
+    "vscode": "^1.83.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+		"OIL",
+		"OSEK",
+		"AUTOSAR",
+		"trampoline",
+		"goil",
+		"gtl"
+	],
+  "contributes": {
+    "languages": [{
+      "id": "gtl",
+      "aliases": ["gtl"],
+      "extensions": [".goilTemplate"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [
+    {
+      "language": "gtl",
+      "scopeName": "source.gtl",
+      "path": "./syntaxes/gtl.tmLanguage.json",
+      "embeddedLanguages": {
+        "meta.embedded.block.template.c": "c"
+      }
+    }
+  ]
+  }
+}
