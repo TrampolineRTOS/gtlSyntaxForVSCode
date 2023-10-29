@@ -1,4 +1,4 @@
-# gtl README
+# VSCode extension for GTL syntax highlighting - README
 
 this is the syntax highlighting extension for the GTL domain Specific Language. 
 GTL is a template based language that has been designed to be used in the OIL compiler of Trampoline RTOS to generate code (C mostly).
