@@ -14,6 +14,9 @@ The GTL documentation can be found [here](https://github.com/TrampolineRTOS/GTL/
 Trampoline RTOS is [here](https://github.com/TrampolineRTOS/trampoline).
 
 ## Preview
+Basic example extracted from the root goil template (`root.goilTemplate`):
 
-TODO
+<img src="https://raw.githubusercontent.com/TrampolineRTOS/gtlSyntaxForVSCode/master/images/basicSyntaxGoilTemplates.png">
+
+
 
